@@ -26,6 +26,7 @@ class DataProviderTests: XCTestCase {
         
         tableView = controller.tableView
         tableView.dataSource = sut
+        tableView.delegate = sut
     }
 
     override func tearDownWithError() throws {
@@ -73,9 +74,7 @@ class DataProviderTests: XCTestCase {
     }
     
     func testCellForRowAtIndexPathDequeuesCellFromTableView() {
-        let mockTableView = MockTableView()
-        mockTableView.dataSource = sut
-        mockTableView.register(TaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
+        let mockTableView = MockTableView.mockTableView(withDataSource: sut)
         
         sut.taskManager?.add(task: Task(title: "Foo"))
         mockTableView.reloadData()
@@ -86,22 +85,79 @@ class DataProviderTests: XCTestCase {
     }
     
     func testCellForRowInSectionZeroCallsConfigure() {
-        tableView.register(MockTaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
+        let mockTableView = MockTableView.mockTableView(withDataSource: sut)
         
         let task = Task(title: "Foo")
         sut.taskManager?.add(task: task)
-        tableView.reloadData()
+        mockTableView.reloadData()
         
-        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MockTaskCell
+        let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MockTaskCell
         
         XCTAssertEqual(cell.task, task)
         
+    }
+    
+    func testCellForRowInSectionOneCallsConfigure() {
+        let mockTableView = MockTableView.mockTableView(withDataSource: sut)
+        
+        let task = Task(title: "Foo")
+        let task2 = Task(title: "Bar")
+        sut.taskManager?.add(task: task)
+        sut.taskManager?.add(task: task2)
+        sut.taskManager?.checkTask(at: 0)
+        mockTableView.reloadData()
+        
+        let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! MockTaskCell
+        
+        XCTAssertEqual(cell.task, task)
+        
+    }
+    
+    func  testDeleteButtonTitleSectionZeroShowsDone() {
+        let buttonTitle  = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 0))
+        
+        XCTAssertEqual(buttonTitle, "Done")
+    }
+    
+    func testDeleteButtonTitleSectionOneShowsDone() {
+        let buttonTitle = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 1))
+        
+        XCTAssertEqual(buttonTitle, "Undone")
+    }
+    
+    func testCheckingTaskChecksInTaskManager() {
+        let task = Task(title: "Foo")
+        sut.taskManager?.add(task: task)
+        
+        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
+        
+        XCTAssertEqual(sut.taskManager?.tasksCount, 0)
+        XCTAssertEqual(sut.taskManager?.doneTasksCount, 1)
+    }
+    
+    func testUncheckingTaskUnchecksInTaskManager() {
+        let task = Task(title: "Foo")
+        sut.taskManager?.add(task: task)
+        sut.taskManager?.checkTask(at: 0)
+        tableView.reloadData()
+        
+        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 1))
+        
+        XCTAssertEqual(sut.taskManager?.tasksCount, 1)
+        XCTAssertEqual(sut.taskManager?.doneTasksCount, 0)
     }
 }
 
 extension DataProviderTests {
     class MockTableView: UITableView {
         var cellIsDequeued = false
+        
+        static func mockTableView(withDataSource dataSource: UITableViewDataSource) -> MockTableView {
+            let mockTableView = MockTableView(frame: CGRect(x: 0, y: 0, width: 414, height: 818), style: .plain)
+            mockTableView.dataSource = dataSource
+            mockTableView.register(MockTaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
+            return mockTableView
+        }
         
         override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
             cellIsDequeued = true
