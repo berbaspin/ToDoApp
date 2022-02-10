@@ -115,6 +115,13 @@
                                 <rect key="frame" x="87" y="448" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzv-39-CRa">
+                                <rect key="frame" x="186" y="361" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EQD-fP-vD7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -122,6 +129,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="pxs-63-QE4" id="EQs-v8-ctB"/>
                         <outlet property="descriptionLabel" destination="aqQ-UY-1iV" id="N1q-78-fXf"/>
+                        <outlet property="locationLabel" destination="zzv-39-CRa" id="LSc-5N-iOO"/>
                         <outlet property="mapView" destination="iTJ-Oc-3Gb" id="aai-df-I3E"/>
                         <outlet property="titleLabel" destination="WDJ-8j-dWA" id="l8L-vm-fBc"/>
                     </connections>
@@ -129,6 +137,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyE-Zq-vjb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="623" y="69"/>
+        </scene>
+        <!--New Task View Controller-->
+        <scene sceneID="Xl3-ze-ebN">
+            <objects>
+                <viewController storyboardIdentifier="NewTaskViewController" id="sDi-GB-YU6" customClass="NewTaskViewController" customModule="ToDoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7rv-cX-Cot">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FGs-Ll-Mlx">
+                                <rect key="frame" x="159" y="208" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgB-sj-Tf3">
+                                <rect key="frame" x="159" y="271" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzL-pa-NFy">
+                                <rect key="frame" x="159" y="339" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9s4-qy-HYg">
+                                <rect key="frame" x="159" y="417" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJx-72-Odo">
+                                <rect key="frame" x="73" y="555" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42F-rd-d4Z">
+                                <rect key="frame" x="286" y="555" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="533-0V-3QZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="adressTextField" destination="9s4-qy-HYg" id="Qlk-1n-ges"/>
+                        <outlet property="cancelButton" destination="42F-rd-d4Z" id="hIi-gd-Jvm"/>
+                        <outlet property="dateTextField" destination="yzL-pa-NFy" id="qzY-DV-yKo"/>
+                        <outlet property="locationTextField" destination="LgB-sj-Tf3" id="HHM-6e-2E8"/>
+                        <outlet property="saveButton" destination="AJx-72-Odo" id="tcu-ck-Yyu"/>
+                        <outlet property="titleTextField" destination="FGs-Ll-Mlx" id="LKg-aR-GGo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lVp-eN-Rac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1322" y="75"/>
         </scene>
     </scenes>
     <resources>

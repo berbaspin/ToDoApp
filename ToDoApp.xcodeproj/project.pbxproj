@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1378310827B544DF00B70CAC /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378310727B544DF00B70CAC /* DetailViewControllerTests.swift */; };
 		1378310A27B5457500B70CAC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378310927B5457500B70CAC /* DetailViewController.swift */; };
+		1378310C27B59F6E00B70CAC /* NewTaskViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378310B27B59F6E00B70CAC /* NewTaskViewControllerTests.swift */; };
+		1378310E27B59FD600B70CAC /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378310D27B59FD600B70CAC /* NewTaskViewController.swift */; };
 		138DDC8D27B2AC9C00E3B9E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138DDC8C27B2AC9C00E3B9E0 /* AppDelegate.swift */; };
 		138DDC8F27B2AC9C00E3B9E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138DDC8E27B2AC9C00E3B9E0 /* SceneDelegate.swift */; };
 		138DDC9127B2AC9C00E3B9E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138DDC9027B2AC9C00E3B9E0 /* TaskListViewController.swift */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		1378310727B544DF00B70CAC /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 		1378310927B5457500B70CAC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1378310B27B59F6E00B70CAC /* NewTaskViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewControllerTests.swift; sourceTree = "<group>"; };
+		1378310D27B59FD600B70CAC /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		138DDC8927B2AC9C00E3B9E0 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		138DDC8C27B2AC9C00E3B9E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		138DDC8E27B2AC9C00E3B9E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				138DDC9027B2AC9C00E3B9E0 /* TaskListViewController.swift */,
 				138DDCD227B3D15A00E3B9E0 /* DataProvider.swift */,
 				1378310927B5457500B70CAC /* DetailViewController.swift */,
+				1378310D27B59FD600B70CAC /* NewTaskViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				138DDCD027B3CC8100E3B9E0 /* TaskListViewControllerTests.swift */,
 				138DDCD427B3EE3F00E3B9E0 /* DataProviderTests.swift */,
 				1378310727B544DF00B70CAC /* DetailViewControllerTests.swift */,
+				1378310B27B59F6E00B70CAC /* NewTaskViewControllerTests.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				138DDC9127B2AC9C00E3B9E0 /* TaskListViewController.swift in Sources */,
 				138DDCD327B3D15A00E3B9E0 /* DataProvider.swift in Sources */,
 				138DDCD727B3F4D200E3B9E0 /* TaskCell.swift in Sources */,
+				1378310E27B59FD600B70CAC /* NewTaskViewController.swift in Sources */,
 				138DDCC627B2D94200E3B9E0 /* Location.swift in Sources */,
 				138DDC8D27B2AC9C00E3B9E0 /* AppDelegate.swift in Sources */,
 				138DDC8F27B2AC9C00E3B9E0 /* SceneDelegate.swift in Sources */,
@@ -388,6 +395,7 @@
 				138DDCC127B2B80400E3B9E0 /* TaskTests.swift in Sources */,
 				138DDCC827B2DA9100E3B9E0 /* LocationTests.swift in Sources */,
 				138DDCDA27B5370900E3B9E0 /* TaskCellTests.swift in Sources */,
+				1378310C27B59F6E00B70CAC /* NewTaskViewControllerTests.swift in Sources */,
 				138DDCD527B3EE3F00E3B9E0 /* DataProviderTests.swift in Sources */,
 				138DDCCB27B3B89700E3B9E0 /* TaskManagerTests.swift in Sources */,
 				138DDCD127B3CC8100E3B9E0 /* TaskListViewControllerTests.swift in Sources */,
