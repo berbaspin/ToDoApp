@@ -10,13 +10,13 @@ import CoreLocation
 
 class NewTaskViewController: UIViewController {
     
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
-    @IBOutlet weak var addressTextField: UITextField!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var locationTextField: UITextField!
+    @IBOutlet var dateTextField: UITextField!
+    @IBOutlet var descriptionTextField: UITextField!
+    @IBOutlet var addressTextField: UITextField!
+    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
     
     var taskManager: TaskManager!
     
@@ -36,20 +36,23 @@ class NewTaskViewController: UIViewController {
     
     @IBAction func save() {
         
-        guard let titleString = titleTextField.text,
-        let locationString = locationTextField.text,
-        let dateString = dateTextField.text,
-        let descriptionString = descriptionTextField.text,
+        let titleString = titleTextField.text
+        let locationString = locationTextField.text
+        let dateString = dateTextField.text
+        let descriptionString = descriptionTextField.text
         let addressString = addressTextField.text
-        else { return }
-        let date = dateFormatter.date(from: dateString)
+        let date = dateFormatter.date(from: dateString!)
         
-        geocoder.geocodeAddressString(addressString) { [unowned  self] placemarks, error in
+        geocoder.geocodeAddressString(addressString!) { [unowned self] placemarks, error in
             let placemark = placemarks?.first
             let coordinate = placemark?.location?.coordinate
-            let location = Location(name: locationString, coordinate: coordinate)
-            let task = Task(title: titleString, description: descriptionString, date: date, location: location)
+            let location = Location(name: locationString!, coordinate: coordinate)
+            let task = Task(title: titleString!, description: descriptionString, date: date, location: location)
             self.taskManager.add(task: task)
+            
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     

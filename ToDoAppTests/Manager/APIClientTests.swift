@@ -13,14 +13,15 @@ class APIClientTests: XCTestCase {
     var sut: APIClient!
     var mockURLSession: MockURLSession!
 
-    override func setUpWithError() throws {
+    override func setUp() {
+        super.setUp()
         mockURLSession = MockURLSession(data: nil, urlResponse: nil, responseError: nil)
         sut = APIClient()
         sut.urlSession = mockURLSession
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        super.tearDown()
     }
     
     func userLogin() {

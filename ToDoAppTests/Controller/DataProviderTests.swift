@@ -15,7 +15,8 @@ class DataProviderTests: XCTestCase {
     
     var controller: TaskListViewController!
 
-    override func setUpWithError() throws {
+    override func setUp() {
+        super.setUp()
         sut = DataProvider()
         sut.taskManager = TaskManager()
         
@@ -29,8 +30,8 @@ class DataProviderTests: XCTestCase {
         tableView.delegate = sut
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        super.tearDown()
     }
     
     func testNumberOfSectionsIsTwo() {

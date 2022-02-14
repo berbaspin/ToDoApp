@@ -13,14 +13,15 @@ class DetailViewControllerTests: XCTestCase {
 
     var sut: DetailViewController!
     
-    override func setUpWithError() throws {
+    override func setUp() {
+        super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         sut = storyboard.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
         sut.loadViewIfNeeded()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        super.tearDown()
     }
     
     func testHasTitleLabel() {
