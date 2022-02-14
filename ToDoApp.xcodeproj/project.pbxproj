@@ -160,7 +160,7 @@
 				138DDCCF27B3CC4E00E3B9E0 /* Controller */,
 				138DDCC227B2B80B00E3B9E0 /* Model */,
 				138DDCC927B3B87D00E3B9E0 /* Manager */,
-				138DDCA327B2AC9E00E3B9E0 /* ToDoAppTests.swift */,
+				13E85DD127BA69EB007E3DC8 /* Supporting Files */,
 			);
 			path = ToDoAppTests;
 			sourceTree = "<group>";
@@ -259,6 +259,14 @@
 				138DDCD927B5370900E3B9E0 /* TaskCellTests.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		13E85DD127BA69EB007E3DC8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				138DDCA327B2AC9E00E3B9E0 /* ToDoAppTests.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
