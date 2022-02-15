@@ -33,6 +33,12 @@ class NewTaskViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        presentingViewController?.viewWillAppear(true)
+    }
+    
     
     @IBAction func save() {
         
